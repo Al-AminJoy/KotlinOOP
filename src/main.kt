@@ -1,3 +1,18 @@
+class App : DownloadListener{
+    override fun onDownloadStarted() {
+        println("Download Started")
+    }
+
+    override fun onDownloadComplete(file: String) {
+        println("Download Complete ${file}");
+    }
+
+    override fun onProgressUpdate(progress: Int) {
+        println("Downloading ${progress}%");
+    }
+
+}
+
 fun main(args: Array<String>) {
    /* val box = Box(10,20,15);
 
@@ -16,7 +31,7 @@ fun main(args: Array<String>) {
 
     print(status);*/
 
-    val audioDownload  = Audio("audio.mp3");
+   /* val audioDownload  = Audio("audio.mp3");
     val videoDownload  = Video("video.mp4");
 
     audioDownload.downloaderInfo();
@@ -26,6 +41,26 @@ fun main(args: Array<String>) {
     videoDownload.downloaderInfo();
     videoDownload.download();
     videoDownload.play();
+*/
 
+    //val downloadListener = App();
+
+    val download = DownloaderClass();
+
+   // download.downloadListener = downloadListener;
+    download.downloadListener = object :DownloadListener{
+        override fun onDownloadStarted() {
+            println("Download Started")
+        }
+
+        override fun onDownloadComplete(file: String) {
+            println("Download Complete ${file}");
+        }
+
+        override fun onProgressUpdate(progress: Int) {
+            println("Downloading ${progress}%");
+        }
+    };
+    download.downloadFile("video.mkv");
 
 }
