@@ -4,7 +4,7 @@ class App : DownloadListener{
     }
 
     override fun onDownloadComplete(file: String) {
-        println("Download Complete ${file}");
+        println("Download Complete $file");
     }
 
     override fun onProgressUpdate(progress: Int) {
@@ -12,6 +12,28 @@ class App : DownloadListener{
     }
 
 }
+
+class MakeCoffee(
+    private val name:String
+):CoffeeMaker{
+    override fun makeCoffee() {
+        println("$name Made");
+    }
+}
+
+class MixCoffee(
+    private val name:String
+):CoffeeMixer{
+    override fun mixCoffee() {
+        println("$name Mixed");
+    }
+
+}
+
+class CoffeeServer(
+    private val maker:CoffeeMaker,
+    private val mixer:CoffeeMixer
+): CoffeeMaker by maker,CoffeeMixer by mixer
 
 fun main(args: Array<String>) {
    /* val box = Box(10,20,15);
@@ -48,19 +70,30 @@ fun main(args: Array<String>) {
     val download = DownloaderClass();
 
    // download.downloadListener = downloadListener;
-    download.downloadListener = object :DownloadListener{
+  /*  download.downloadListener = object :DownloadListener{
         override fun onDownloadStarted() {
             println("Download Started")
         }
 
         override fun onDownloadComplete(file: String) {
-            println("Download Complete ${file}");
+            println("Download Complete $file");
         }
 
         override fun onProgressUpdate(progress: Int) {
             println("Downloading ${progress}%");
         }
     };
-    download.downloadFile("video.mkv");
+    download.downloadFile("video.mkv");*/
 
+   /* var coffee:String = "Joy's Coffee";
+
+    val coffeeServer:CoffeeServer = CoffeeServer(MakeCoffee(coffee),MixCoffee(coffee));
+    coffeeServer.makeCoffee();
+    coffeeServer.mixCoffee();
+*/
+    val student = Student();
+    student.firstName = "Al-Amin";
+    student.secondName = "Islam";
+
+    println(student.firstName+" "+student.secondName);
 }

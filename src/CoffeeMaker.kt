@@ -1,0 +1,3 @@
+interface CoffeeMaker {
+    fun makeCoffee();
+}
