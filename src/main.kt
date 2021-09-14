@@ -91,9 +91,18 @@ fun main(args: Array<String>) {
     coffeeServer.makeCoffee();
     coffeeServer.mixCoffee();
 */
-    val student = Student();
+   /* val student = Student();
     student.firstName = "Al-Amin";
     student.secondName = "Islam";
 
-    println(student.firstName+" "+student.secondName);
+    println(student.firstName+" "+student.secondName);*/
+
+    val food = Food();
+    //food.heavy;
+    /*food.price = 20;
+    food.price = 30;*/
+    food.quantity = 5;
+    food.quantity = 15;
+    food.quantity = 20;
+
 }
