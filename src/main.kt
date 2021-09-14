@@ -67,7 +67,7 @@ fun main(args: Array<String>) {
 
     //val downloadListener = App();
 
-    val download = DownloaderClass();
+   // val download = DownloaderClass();
 
    // download.downloadListener = downloadListener;
   /*  download.downloadListener = object :DownloadListener{
